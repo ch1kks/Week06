@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Quicksand:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ketchup: A Delicious Condiment</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <img src="image/Tomato.png" alt="Ketchup Logo" />
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#manufacture">Manufacture</a></li>
+            <li><a href="#variants">Variants</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="hero">
+        <h1>Ketchup: A Delicious Condiment</h1>
+        <p>
+          Ketchup is a sauce used as a condiment, originally from East Asia, but
+          now used in cuisines worldwide. It's known for its tangy, sweet flavor
+          and its versatile use in a variety of dishes.
+        </p>
+      </section>
+      <div class="content-wrapper">
+        <section id="wiki">
+          <article id="about">
+            <h2>About Ketchup</h2>
+            <p>
+              The earliest known form of Ketchup was a fermented fish sauce from
+              southern China. It made its way to Malaysia and Indonesia where it
+              became kecap (pronounced "kay-chap"). That word evolved into
+              ketchup in English. Originally, recipes used egg whites,
+              mushrooms, oysters, grapes, mussels, or walnuts, among other
+              ingredients, but now the unmodified term usually refers to tomato
+              ketchup.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Ketchup" target="_blank"
+              >Learn More</a
+            >
+            <img
+              src="image/ketchup-about.jpg"
+              alt="Ketchup Bottle"
+              class="about-image"
+            />
+          </article>
+
+          <article id="history">
+            <h2>History of Ketchup</h2>
+            <p>
+              Ketchup has a fascinating history that spans the globe. Various
+              recipes for ketchup were published in the 18th century, with
+              ingredients including mushrooms, oysters, and fruits. However, it
+              was in the 19th century that tomato ketchup began its rise to
+              condiment fame. It was popularized in the United States by
+              entrepreneurs such as Henry J. Heinz and quickly became a staple
+              in homes and restaurants alike.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Ketchup" target="_blank"
+              >Learn More</a
+            >
+            <img
+              src="image/ketchup-history.png"
+              alt="Historical Ketchup Bottles"
+              class="history-image"
+            />
+          </article>
+
+          <article id="manufacture">
+            <h2>Ketchup Manufacture</h2>
+            <p>
+              Modern ketchup is sweet and tangy, typically made from tomatoes,
+              sweetener, vinegar, and seasonings. These ingredients are blended
+              together and cooked slowly to achieve a rich, flavorful sauce. The
+              tomatoes used in production are often ripe and of high quality, to
+              ensure the best flavor. The resulting product is then bottled and
+              distributed around the world.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Ketchup" target="_blank"
+              >Learn More</a
+            >
+            <img
+              src="image/ketchup-manufacture.png"
+              alt="Ketchup Manufacturing Process"
+              class="manufacture-image"
+            />
+          </article>
+
+          <article id="variants">
+            <h2>Ketchup Variants</h2>
+            <p>
+              Beyond tomato ketchup, there are many variants of this beloved
+              condiment. For example, mushroom ketchup is a traditional British
+              condiment made from cooked, salted mushrooms. Fruit ketchup,
+              popular in the Philippines, is made from bananas. There's also a
+              spicy version of ketchup, often paired with fast food or used as a
+              base for other sauces.
+            </p>
+            <a href="https://en.wikipedia.org/wiki/Ketchup" target="_blank"
+              >Learn More</a
+            >
+            <img
+              src="image/ketchup-variants.jpg"
+              alt="Various Ketchup Variants"
+              class="variant-image"
+            />
+          </article>
+        </section>
+        <aside>
+          <h3>Popular Dishes with Ketchup</h3>
+          <ul>
+            <li>Fries and ketchup</li>
+            <li>Hamburgers</li>
+            <li>Meatloaf</li>
+            <li>Hot dogs</li>
+            <li>Chicken tenders</li>
+            <li>Eggs</li>
+          </ul>
+        </aside>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        Page content sourced from
+        <a href="https://en.wikipedia.org/wiki/Ketchup" target="_blank"
+          >Wikipedia</a
+        >.
+      </p>
+    </footer>
+    <script>
+      const aside = document.querySelector("aside");
+      let isDragging = false,
+        offsetX = 0,
+        offsetY = 0;
+
+      aside.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        offsetX = e.clientX - aside.offsetLeft;
+        offsetY = e.clientY - aside.offsetTop;
+        aside.style.cursor = "move";
+      });
+
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          aside.style.left = e.clientX - offsetX + "px";
+          aside.style.top = e.clientY - offsetY + "px";
+          aside.style.position = "fixed";
+        }
+      });
+
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+        aside.style.cursor = "grab";
+      });
+      aside.addEventListener("touchstart", function (e) {
+        isDragging = true;
+        const touch = e.touches[0];
+        offsetX = touch.clientX - aside.offsetLeft;
+        offsetY = touch.clientY - aside.offsetTop;
+        aside.style.cursor = "move";
+      });
+      document.addEventListener("touchmove", function (e) {
+        if (isDragging) {
+          const touch = e.touches[0];
+          aside.style.left = touch.clientX - offsetX + "px";
+          aside.style.top = touch.clientY - offsetY + "px";
+          aside.style.position = "fixed";
+        }
+      });
+      document.addEventListener("touchend", function () {
+        isDragging = false;
+        aside.style.cursor = "grab";
+      });
+    </script>
+  </body>
+</html>
